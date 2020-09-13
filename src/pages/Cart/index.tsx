@@ -3,6 +3,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import { View } from 'react-native';
 
+import { NoSubstitutionTemplateLiteral } from 'typescript';
 import {
   Container,
   ProductContainer,
@@ -43,19 +44,27 @@ const Cart: React.FC = () => {
   }
 
   function handleDecrement(id: string): void {
-    // TODO
+    // TOD
   }
 
   const cartTotal = useMemo(() => {
-    // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
+    const total = products.reduce((accumulator, product) => {
+      const productsSubtotal = product.price * product.quantity;
 
-    return formatValue(0);
+      return accumulator + productsSubtotal;
+    }, 0);
+
+    return formatValue(total);
   }, [products]);
 
   const totalItensInCart = useMemo(() => {
-    // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
+    const total = products.reduce((accumulator, product) => {
+      const productsTotalQuantity = accumulator + product.quantity;
 
-    return 0;
+      return productsTotalQuantity;
+    }, 0);
+
+    return total;
   }, [products]);
 
   return (
