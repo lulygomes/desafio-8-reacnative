@@ -3,7 +3,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import { View } from 'react-native';
 
-import { NoSubstitutionTemplateLiteral } from 'typescript';
+// import { NoSubstitutionTemplateLiteral } from 'typescript';
 import {
   Container,
   ProductContainer,
@@ -40,11 +40,11 @@ const Cart: React.FC = () => {
   const { increment, decrement, products } = useCart();
 
   function handleIncrement(id: string): void {
-    // TODO
+    increment(id);
   }
 
   function handleDecrement(id: string): void {
-    // TOD
+    decrement(id);
   }
 
   const cartTotal = useMemo(() => {
